@@ -1,75 +1,76 @@
-// function test() {
-//     console.log(beforeLet);
-//     console.log(beforeConst;
-//         let beforeLet = 'defined';
-//         let beforeConst = 'defined';
+// class Person 
+// {
+//     constructor(name)
+//     {
+//         this._name = name;
+//     }
+
+//     get name()
+//     {
+//         return this._name;
+//     }
+
+//     set name(newName)
+//     {
+//         this._name = newName;
+//     }
 // }
 
-// test();
+// Person = new Person("Jerome Oswald");
+// console.log(Person.name);
 
-// var varVariable = 1 ;
-// var varVariable = 2 ;
-// let letVariable = 3 ;
-// let letVariable = 4 ;
-// const constVariable = 5 ;
-// constVariable = 6 ;
-
-// console.log(varVariable, letVariable, constVariable);
-
-// var welcome = 'Welcome to Sweater Season!' // globally scoped
-// function fallActivities() {
-//    var activities = 'buy a pumpkin and make Jack O Lantern'; 
-// // locally scoped
-//    console.log(`You can ${activities}`); 
-//    // The `backtick`, a.k.a the template literal, is a new feature in ES6 to replace the complication of string concatenation.
-// }
-// console.log(welcome); // Welcome to Sweater Season!
-// console.log(activities);
+// Person.name = "JO";
+// console.log(Person.name);
 
 
-let firstName = "Jerome"
-let lastName = "Oswald J"
-let age = 27;
-let city = "Trichy"
+class BankAccount
+{
+    constructor(initialBalance = 0)
+    {
+        this._balance = initialBalance;
+        this._transactionHistory = [];
+    }
 
-console.log("My name is " + firstName + " " + lastName + "." + "My age is " + age + "." +" I currently live in "+ city + "." );
-console.log(`My name is ${firstName} ${lastName}.My age is ${age}. I currently live in ${city}.`);
+    get balance()
+    {
+        return this._balance 
+    }
 
-function sum(x,y,z){
-    return x + y+ z;
-}
+    set balance({amount,description})
+    {
+        if (description == undefined)
+        {
+            console.error("Transation must include a description");
+            return;
+        }
+        this.prevBalace = this.balance
+        this._balance += amount;
+        this._transactionHistory.push({amount,description,_prenBalnce: this.prevBalace});
 
-const numbers = [1, 2, 3]
-console.log(sum(numbers[0],numbers[1],numbers[2],));
-console.log(sum(...numbers));
+    }
+    getTransactionHistory()
+    {
+        return this._transactionHistory.slice();
+    }
 
-let arr1 = [1, 2, 3];
-let arr2 = [4, 5, 6];
-console.log([...arr1,...arr2]);
-
-// let obj1 = {name: "Jerome", age:27};
-// let obj2 = {role: "TL", company:"Google"};
-// let combineobj = {...obj1,...obj2}
-// console.log(combineobj);
-
-function concatenatestrings(...strings){
-    return strings;//.join(' ');
-}
-console.log(concatenatestrings("I","Love","Javascript!"));
-
-
-
-// function concatenatestrings(...strings){
-//     return strings.join(' ');
-// }
-// console.log(concatenatestrings("I","Love","Javascript!"));
-
-
-function printUserInfo(name, age, ...hobbies){
-    console.log(name,age);
-    console.log("Hobbies:", hobbies.join(','));
 }
 
 
+const myAccout = new BankAccount(100);
 
-printUserInfo("Jerome", 27, "Reading", "Coding", "PS")
+myAccout.balance = {amount: 300,description: "DP (Deposite) - Vayalur Road ATM Canara - Jerome Oswald"};
+console.log(`New Balance: ${myAccout.balance}`);
+
+myAccout.balance = {amount: -350,description: "WD (Withdrawal) - Grocery Shopping"};
+console.log(`New Balance: ${myAccout.balance}`);
+
+myAccout.balance = {amount: 500,description: "DP - Grocery Shopping"};
+console.log(`New Balance: ${myAccout.balance}`);
+
+myAccout.balance = {amount: -50,description: "WD - Shopping"};
+console.log(`New Balance: ${myAccout.balance}`);
+
+myAccout.balance = {amount: -100,description: "WD - Grocery Shopping"};
+console.log(`New Balance: ${myAccout.balance}`);
+
+console.log(myAccout.getTransactionHistory());
