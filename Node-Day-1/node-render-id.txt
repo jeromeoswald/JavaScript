@@ -1,0 +1,2 @@
+POST: https://javascript-xegx.onrender.com/createFile
+GET: https://javascript-xegx.onrender.com/getFiles
