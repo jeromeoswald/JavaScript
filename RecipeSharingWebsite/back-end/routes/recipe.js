@@ -12,15 +12,14 @@ require("dotenv").config();
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-//Add Recipe
+// Add Recipe
 router.post(
   "/recipes",
   authMiddleware,
   checkRole(["admin"]),
   upload.array("media"),
   async (req, res) => {
-    const { title, description, ingredients, instructions, category } =
-      req.body;
+    const { title, description, ingredients, instructions, category } = req.body;
     try {
       // Upload media files to Cloudinary
       const mediaUrls = await Promise.all(
@@ -39,6 +38,7 @@ router.post(
           });
         })
       );
+
       const newRecipe = new Recipe({
         title,
         description,
@@ -53,6 +53,7 @@ router.post(
         ),
         user: req.userId,
       });
+
       await newRecipe.save();
       res.json({ message: "Recipe added" });
     } catch (error) {
@@ -76,30 +77,78 @@ router.get("/recipes/:recipeId", async (req, res) => {
   const { recipeId } = req.params;
   try {
     const recipe = await Recipe.findById(recipeId).populate("user");
+    if (!recipe) {
+      return res.status(404).json({ message: "Recipe not found" });
+    }
     res.json(recipe);
   } catch (error) {
     res.json({ message: error.message });
   }
 });
 
-//Update Recipe
+// Update Recipe
 router.put(
   "/recipes/:recipeId",
   authMiddleware,
   checkRole(["admin"]),
+  upload.array("media"),
   async (req, res) => {
     const { recipeId } = req.params;
-    const updates = req.body;
+    const { title, description, ingredients, instructions, category } = req.body;
+
     try {
-      await Recipe.findByIdAndUpdate(recipeId, updates);
+      const recipe = await Recipe.findById(recipeId);
+      if (!recipe) {
+        return res.status(404).json({ message: "Recipe not found" });
+      }
+
+      // Upload new media files to Cloudinary
+      const mediaUrls = await Promise.all(
+        req.files.map(async (file) => {
+          return new Promise((resolve, reject) => {
+            const uploadStream = cloudinary.uploader.upload_stream(
+              {
+                resource_type: "auto",
+              },
+              (error, result) => {
+                if (error) return reject(error);
+                resolve(result.secure_url);
+              }
+            );
+            uploadStream.end(file.buffer);
+          });
+        })
+      );
+
+      // Update the recipe with new data
+      const updatedData = {
+        title,
+        description,
+        ingredients: ingredients ? ingredients.split(",") : recipe.ingredients,
+        instructions,
+        category,
+        images: mediaUrls.filter(
+          (url) => url.endsWith(".jpg") || url.endsWith(".png")
+        ).length
+          ? mediaUrls.filter((url) => url.endsWith(".jpg") || url.endsWith(".png"))
+          : recipe.images,
+        videos: mediaUrls.filter(
+          (url) => url.endsWith(".mp4") || url.endsWith(".mov")
+        ).length
+          ? mediaUrls.filter((url) => url.endsWith(".mp4") || url.endsWith(".mov"))
+          : recipe.videos,
+      };
+
+      await Recipe.findByIdAndUpdate(recipeId, updatedData);
       res.json({ message: "Recipe updated" });
     } catch (error) {
-      res.status(500).json({ message: "Error updating recipe" });
+      console.error("Error updating recipe:", error);
+      res.status(500).json({ message: "Error updating recipe", error: error.message });
     }
   }
 );
 
-//Delete Recipe
+// Delete Recipe
 router.delete(
   "/recipes/:recipeId",
   authMiddleware,
@@ -107,12 +156,19 @@ router.delete(
   async (req, res) => {
     const { recipeId } = req.params;
     try {
-      await Recipe.findByIdAndDelete(recipeId);
+      const recipe = await Recipe.findById(recipeId);
+      if (!recipe) {
+        return res.status(404).json({ message: "Recipe not found" });
+      }
+
+      await recipe.remove(); // Remove the recipe document
       res.json({ message: "Recipe deleted" });
     } catch (error) {
-      res.status(500).json({ message: "Error deleting recipe" });
+      console.error("Error deleting recipe:", error);
+      res.status(500).json({ message: "Error deleting recipe", error: error.message });
     }
   }
 );
+
 
 module.exports = router;
