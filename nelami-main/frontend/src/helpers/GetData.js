@@ -10,6 +10,7 @@ export const getData = async (dispatch) => {
         const data = await res.json();
 
         if (res.status === 200) {
+            console.log(data,"check");
             dispatch({ type: "LOAD_DATA_SUCCESS", payload: data.data })
         }
         else {

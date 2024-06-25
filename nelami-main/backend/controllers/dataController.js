@@ -9,7 +9,7 @@ exports.addEntry = catchAsyncErrors(async (req, res, next) => {
     }
     var query = {};
     query[item] = newEntry;
-    const dataDocument = await Data.findByIdAndUpdate("62ea446ef91380cf34601403",
+    const dataDocument = await Data.findByIdAndUpdate("667970f6e2aec7085d2570c7",
         {
             $push: query
         },
@@ -38,7 +38,7 @@ exports.removeEntry = catchAsyncErrors(async (req, res, next) => {
     }
     var query = {};
     query[item] = newEntry;
-    const dataDocument = await Data.findByIdAndUpdate("62ea446ef91380cf34601403",
+    const dataDocument = await Data.findByIdAndUpdate("667970f6e2aec7085d2570c7",
         {
             $pull: query
         },
@@ -62,7 +62,7 @@ exports.removeEntry = catchAsyncErrors(async (req, res, next) => {
 exports.updatePackage = catchAsyncErrors(async (req, res, next) => {
     let { pkgName, newPrice, newDesc, newProductsAllowed } = req.body;
 
-    const dataDocument = await Data.findById("62ea446ef91380cf34601403")
+    const dataDocument = await Data.findById("667970f6e2aec7085d2570c7")
     dataDocument.packages.map((package) => {
         if (package.name === pkgName) {
             package.price = parseInt(newPrice);
@@ -82,7 +82,7 @@ exports.updatePackage = catchAsyncErrors(async (req, res, next) => {
 // -------------------------------------------------------------- //
 
 exports.getData = catchAsyncErrors(async (req, res, next) => {
-    const data = await Data.findById("62ea446ef91380cf34601403");
+    const data = await Data.findById("667970f6e2aec7085d2570c7");
     res.status(200).json({
         status: "success",
         data: data,
