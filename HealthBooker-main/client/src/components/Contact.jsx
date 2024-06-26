@@ -25,8 +25,8 @@ const Contact = () => {
         <h2 className="form-heading">Contact Us</h2>
         <form
           method="POST"
-          action={`https://formspree.io/f/${process.env.REACT_FORMIK_SECRET}`}
-          className="register-form "
+          action={`https://formspree.io/f/xdknnpqr`}
+          className= "register-form"
         >
           <input
             type="text"

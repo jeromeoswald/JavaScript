@@ -51,7 +51,7 @@ const schema = mongoose.Schema(
       default: "pending",
     },
     pic: {
-      type: String,
+      type: [String],
       default:
         "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },

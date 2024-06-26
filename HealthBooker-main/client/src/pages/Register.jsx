@@ -53,6 +53,46 @@ function Register() {
     }
   };
 
+  // const onUpload = async (element) => {
+  //   const CLOUDINARY_CLOUD_NAME = "ddgcsaw53";
+  //   const CLOUDINARY_API_KEY = "795662656343869";
+  //   const CLOUDINARY_API_SECRET = "HRTi4G_prhjRZhvHvYdZOCj5_XY";
+  //   const CLOUDINARY_BASE_URL = `https://api.cloudinary.com/v1_1/ddgcsaw53/image/upload`;
+  
+  //   setLoading(true);
+  //   if (element.type === "image/jpeg" || element.type === "image/png" || element.type === "image/jpg") {
+  //     const data = new FormData();
+  //     data.append("file", element);
+  //     data.append("ddgcsaw53", "ddgcsaw53"); // Replace with your actual upload preset
+  
+  //     try {
+  //       const res = await fetch(CLOUDINARY_BASE_URL, {
+  //         method: "POST",
+  //         body: data,
+  //         headers: {
+  //           Authorization: `Basic ${btoa(`${CLOUDINARY_API_KEY}:${CLOUDINARY_API_SECRET}`)}`, // Encode API Key and Secret
+  //         },
+  //       });
+  
+  //       const result = await res.json();
+  //       if (res.ok) {
+  //         setFile(result.secure_url); // Use secure_url for better reliability
+  //         toast.success("Image uploaded successfully");
+  //       } else {
+  //         toast.error(`Image upload failed: ${result.error.message}`);
+  //       }
+  //     } catch (error) {
+  //       toast.error("Image upload failed");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   } else {
+  //     setLoading(false);
+  //     toast.error("Please select an image in jpeg or png format");
+  //   }
+  // };
+  
+
   const formSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
