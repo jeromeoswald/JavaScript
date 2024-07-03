@@ -75,7 +75,7 @@ const ContactForm = (props) => {
     
     const sendMessageHanlder=async(message)=>{
         setBtnText((prevValue)=>'Sending ...');
-        await fetch('https://porfolio-jerome.firebaseio.com/portfolio-messages.json',{
+        await fetch('https://porfolio-jerome-default-rtdb.firebaseio.com/portfolio-messages.json',{
             method:'POST',
             body:JSON.stringify(message)
         });

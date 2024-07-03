@@ -77,7 +77,7 @@ const Navbar = () => {
             <div className="navbar" style={{ backgroundColor: bgColor }}>
                 <div className="logoContainer">
                     <div id="logo">
-                        {PersonalData.firstName}&nbsp;&nbsp;{PersonalData.lastName}
+                        {PersonalData.firstName}&nbsp;{PersonalData.lastName}
                     </div>
                 </div>
                 <div className="navsContainer" style={{ color: nonThemeColor }}>
@@ -97,6 +97,7 @@ const Navbar = () => {
 
                     <input type="checkbox" onClick={()=>handleDropDown()} ref={menuRef} id="burger-toggle" />
                     <label htmlFor="burger-toggle" className="burger-menu">
+                        <div className="line"></div>
                         <div className="line"></div>
                         <div className="line"></div>
                         <div className="line"></div>

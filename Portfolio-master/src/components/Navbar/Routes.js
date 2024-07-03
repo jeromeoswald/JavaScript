@@ -23,11 +23,14 @@ function Routes(props) {
             <a href="#education" onClick={props.onClick}>
                 <div className="navs" onClick={()=>toggleActive(1)}>Education</div>
             </a>
+            <a href="#certification" onClick={props.onClick}>
+                <div className="navs" onClick={()=>toggleActive(2)}>Certification</div>
+            </a>
             <a href="#projects" onClick={props.onClick}>
-                <div className="navs" onClick={()=>toggleActive(2)}>Projects</div>
+                <div className="navs" onClick={()=>toggleActive(3)}>Projects</div>
             </a>
             <a href="#getInTouch" onClick={props.onClick}>
-                <div className="navs" onClick={()=>toggleActive(3)}>Get In Touch</div>
+                <div className="navs" onClick={()=>toggleActive(4)}>Get In Touch</div>
             </a>
             
         </>

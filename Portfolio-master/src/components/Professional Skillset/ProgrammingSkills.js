@@ -1,9 +1,9 @@
 
 import classes from "./programmingSkills.module.css";
-import { CPP, Python, MongoDB, FireBase, ReactJS, NodeJs, JavaScript, Redux } from "../asset/svg/svg";
+import {  Python, MongoDB, FireBase, ReactJS, NodeJs, JavaScript, Redux, DotNet } from "../asset/svg/svg";
 import { useSelector } from "react-redux";
-const skills = [ Python, FireBase, ReactJS, JavaScript, NodeJs, MongoDB, Redux];
-const skillNames=["Python","Firebase","ReactJs","JavaScript","NodeJs","MongoDB","Redux"];
+const skills = [ Python, FireBase, ReactJS, JavaScript, NodeJs, MongoDB, Redux, DotNet];
+const skillNames=["Python","Firebase","ReactJs","JavaScript","NodeJs","MongoDB","Redux", "DotNet"];
 const ProgrammingSkills = (props) => {
 
     const uiColor=useSelector(state=>state.uiColor);

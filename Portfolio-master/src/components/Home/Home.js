@@ -32,12 +32,12 @@ function Home(props) {
                 <h1 className={classes.greeting}>
                     Hi There !
                 </h1>
-                <h2>I'm &nbsp;<span id="name" style={{ color: uiColor }}>{PersonalData.firstName}&nbsp;{PersonalData.lastName}</span></h2>
+                <h2>I'm <span id="name" style={{ color: uiColor }}>{PersonalData.firstName}&nbsp;{PersonalData.lastName}</span></h2>
                 <h3 style={{ color: nonThemeColor }}>
                     {PersonalData.nickName}
                 </h3>
                 <div className={classes.autoText}>
-                    I am a &nbsp; <span id="typer" style={{ color: uiColor }}></span>
+                    I am a <span id="typer" style={{ color: uiColor }}></span>
                 </div>
                 <p className={classes.connectText}>Feel free to <span style={{ color: uiColor }}>connect</span> with me.</p>
                 <SocialLinks className={classes.links} />
