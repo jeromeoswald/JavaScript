@@ -100,7 +100,7 @@ const Navbar = () => {
                         <div className="line"></div>
                         <div className="line"></div>
                         <div className="line"></div>
-                        <div className="line"></div>
+                        {/* <div className="line"></div> */}
                     </label>
                 </div>
             </div>

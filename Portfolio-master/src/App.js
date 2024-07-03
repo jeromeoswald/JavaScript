@@ -24,6 +24,7 @@ const App = () => {
             <Navbar />
             <Home />
             <Education />
+            {/* <Certifications /> */}
             <Projects />
             <AboutMe />
             <Footer />
