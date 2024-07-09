@@ -1,31 +1,32 @@
 const languagesDone = [
-    {
-        name: '.NET',
-        percentDone: 90
-    },
+    
     {
         name: 'React Js',
-        percentDone: 80
+        percentDone: 85
     },
     {
         name: 'Node Js',
+        percentDone: 85
+    },
+    {
+        name: 'MongoDB',
         percentDone: 80
     },
     {
         name: 'Python',
-        percentDone: 70
+        percentDone: 80
+    },
+    {
+        name: '.NET',
+        percentDone: 90
     },
     {
         name: 'MySQL',
         percentDone: 90
     },
     {
-        name: 'Mongodb',
-        percentDone: 80
-    },
-    {
         name: 'UX Design - Figma',
-        percentDone: 80
+        percentDone: 85
     }
 ]
 const EducationData={

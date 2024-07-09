@@ -9,5 +9,5 @@ const PersonalData = {
     resumeLink:'https://drive.google.com/file/d/13wx5dNChAVWGBVhMHauP1SAUh2C55eRv/view?usp=sharing',
     imageUrl:''
 }
-export const autoTypeData=['Software Developer', 'MERN Stack Developer','Frontend Developer','Backend Developer', 'Open Source Contributor'];
+export const autoTypeData=['Software Developer', 'MERN Full Stack Developer','Frontend Developer','Backend Developer','.Net Developer', 'Open Source Contributor'];
 export default PersonalData;

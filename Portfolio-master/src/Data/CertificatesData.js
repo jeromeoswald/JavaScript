@@ -6,6 +6,60 @@ let certificationsList=[
         platform:'Guvi'
     },
     {
+        title:"Full Stack Developer",
+        instructor:"Guvi",
+        link:"https://drive.google.com/file/d/1QObZds9c5zoOaauZo6oJLsT-tnmYZLUG/view?usp=drive_link",
+        platform:'Guvi'
+    },
+    {
+        title:"HTML",
+        instructor:"Guvi",
+        link:"https://drive.google.com/file/d/1O-ZmYrWRshQp8MRVVKrlPSOkC6s8CuMq/view?usp=drive_link",
+        platform:'Guvi'
+    },
+    {
+        title:"CSS",
+        instructor:"Guvi",
+        link:"https://drive.google.com/file/d/1J9tkOzcoiRwH9jmp3A0gGWnA_93DmY_A/view?usp=drive_link",
+        platform:'Guvi'
+    },
+    {
+        title:"Bootstrap",
+        instructor:"Guvi",
+        link:"https://drive.google.com/file/d/1G2QIPPuX1DXw8Mt_RJnQZErrN-ucF9ax/view?usp=drive_link",
+        platform:'Guvi'
+    },
+    {
+        title:"Javascript",
+        instructor:"Guvi",
+        link:"https://drive.google.com/file/d/1YbWKIMLjmZghpxIZK9ch92_w7pm-vtwd/view?usp=drive_link",
+        platform:'Guvi'
+    },
+    {
+        title:"Reactjs",
+        instructor:"Guvi",
+        link:"https://drive.google.com/file/d/1KiEINMQ1l6bIzd4qlfbOUJ0oBUuUZRXe/view?usp=drive_link",
+        platform:'Guvi'
+    },
+    {
+        title:"MySql",
+        instructor:"Guvi",
+        link:"https://drive.google.com/file/d/1eAHOJWTQKjYoJCNHTj5E53Qdr_cMtH9C/view?usp=drive_link",
+        platform:'Guvi'
+    },
+    {
+        title:"MongoDB",
+        instructor:"Guvi",
+        link:"https://drive.google.com/file/d/1Rt93x8-fO2xpCA0JirGC4LYOLiq3p0B4/view?usp=drive_link",
+        platform:'Guvi'
+    },
+    {
+        title:"Node js",
+        instructor:"Guvi",
+        link:"https://drive.google.com/file/d/1v0HZIad_jiyxqrt_ufyOI2dv3_UFZgFp/view?usp=drive_link",
+        platform:'Guvi'
+    },
+    {
         title:"Computer_Hardware_Basics",
         instructor:"Cisco",
         link:"https://drive.google.com/file/d/12IuU52opE6DO0W9Ayy6ielc4aCkuLnTV/view?usp=drive_link",
